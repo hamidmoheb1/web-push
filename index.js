@@ -238,7 +238,7 @@ function makeid(length) {
 // require("./notif-sdk.js")
 let token;
 
-const init = async function() {
+const init = async function(config) {
     let permission = requestPermission();
 
     let hash = await CreateHash();
@@ -249,15 +249,9 @@ const init = async function() {
         // deleteToken(token);
         if (token && hash && subscribeBefore == null) {
 
-            let config = {
-                isSubscriptionRequest: 'true',
-                registrationToken: token,
-                appId: '463a2f03-f078-43b1-9853-e9431e69f7e3',
-                platform: 'WEB',
-                deviceId: hash,
-                ssoId: 78153,
-                data: [],
-            };
+            config.registrationToken = token;
+            config.platform = 'WEB';
+            config.deviceId = hash;
             registerDevice(config);
             localStorage.setItem('subscribe', 'yes');
             getToken(token);
@@ -266,4 +260,4 @@ const init = async function() {
     }
 };
 
-init();
+// init();
