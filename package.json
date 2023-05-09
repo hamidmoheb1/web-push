@@ -1,0 +1,24 @@
+{
+  "name": "@pod-notification/web-push",
+  "version": "1.0.0",
+  "description": "web push SDK",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamidmoheb1/web-push.git"
+  },
+  "keywords": [],
+  "dependencies": {
+    "firebase": "^9.11.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamidmoheb1/web-push/issues"
+  },
+  "homepage": "https://github.com/hamidmoheb1/web-push#readme",
+}
