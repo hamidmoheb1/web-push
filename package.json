@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/hamidmoheb1/web-push/issues"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "homepage": "https://github.com/hamidmoheb1/web-push#readme"
 }

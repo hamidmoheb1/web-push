@@ -1,7 +1,8 @@
 const PUSH_SEEN = 29;
 const PUSH_DISMISSED = 27;
 const PUSH_RECEIVED = 25;
-
+import ("https://www.gstatic.com/firebasejs/9.6.3/firebase-messaging-compat.js")
+import ("https://www.gstatic.com/firebasejs/9.6.3/firebase-app-compat.js")
 function fnBrowserDetect() {
 
     let userAgent = navigator.userAgent;
@@ -233,9 +234,6 @@ function makeid(length) {
     return result;
 }
 
-
-// require("./firebase-messaging-compat")
-// require("./notif-sdk.js")
 let token;
 
 const init = async function(config) {
