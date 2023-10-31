@@ -49,13 +49,16 @@ const CreateHash = async () => {
 }
 
 const registerDevice = (config) => {
-    var url = "http://sandbox.pod.ir/srv/notif-sandbox/push/device/subscribe";
+    var url = "https://sandbox.pod.ir/srv/notif-sandbox/push/device/subscribe";
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url);
 
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
+    if(localStorage.getItem("apiToken")) {
+        xhr.setRequestHeader("Apitoken", localStorage.getItem("apiToken"));
+    }
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             console.log(xhr.status);
@@ -68,7 +71,7 @@ const registerDevice = (config) => {
 
 const sendStatus = (config) => {
     console.log("status sent:" + config.status);
-    var url = "http://sandbox.pod.ir/srv/notif-sandbox/push/device/status";
+    var url = "https://sandbox.pod.ir/srv/notif-sandbox/push/device/status";
 
     let data = {
         status: config.status,
@@ -255,7 +258,9 @@ const init = async function(config) {
         token = await subscribe();
         // deleteToken(token);
         if (token && hash && subscribeBefore == null) {
-
+            if(config.apiToken && config.apiToken !== "") {
+                localStorage.setItem("apiToken", config.apiToken);
+            } else localStorage.removeItem("apiToken");
             config.registrationToken = token;
             config.platform = 'WEB';
             config.deviceId = hash;
