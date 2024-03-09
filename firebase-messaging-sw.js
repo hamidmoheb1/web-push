@@ -101,26 +101,26 @@ async function subscribe () {
 }
 //
 firebase.initializeApp({
-    apiKey: "AIzaSyCd77oDdFact3bgoyixxfQTa8wWiJxMrVY",
-    authDomain: "podnotification-88758.firebaseapp.com",
-    databaseURL: "https://podnotification-88758-default-rtdb.firebaseio.com",
-    projectId: "podnotification-88758",
-    storageBucket: "podnotification-88758.appspot.com",
-    messagingSenderId: "309762851928",
-    appId: "1:309762851928:web:3bfb65cb74e353b553362d",
-    measurementId: "G-D325BCEYEB"
+    apiKey: "AIzaSyCqNkPWfTu2Apvhc5C4z0l3IGWpd5aP4IA",
+    authDomain: "prodnotification-eba19.firebaseapp.com",
+    databaseURL: "https://prodnotification-eba19-default-rtdb.firebaseio.com",
+    projectId: "prodnotification-eba19",
+    storageBucket: "prodnotification-eba19.appspot.com",
+    messagingSenderId: "923291418261",
+    appId: "1:923291418261:web:4fe138fc0ded175199659c",
+    measurementId: "G-L8MSQXRRDE"
 });
 
 const configFireBase = () => {
     const firebaseConfig = {
-        apiKey: "AIzaSyCd77oDdFact3bgoyixxfQTa8wWiJxMrVY",
-        authDomain: "podnotification-88758.firebaseapp.com",
-        databaseURL: "https://podnotification-88758-default-rtdb.firebaseio.com",
-        projectId: "podnotification-88758",
-        storageBucket: "podnotification-88758.appspot.com",
-        messagingSenderId: "309762851928",
-        appId: "1:309762851928:web:3bfb65cb74e353b553362d",
-        measurementId: "G-D325BCEYEB"
+        apiKey: "AIzaSyCqNkPWfTu2Apvhc5C4z0l3IGWpd5aP4IA",
+        authDomain: "prodnotification-eba19.firebaseapp.com",
+        databaseURL: "https://prodnotification-eba19-default-rtdb.firebaseio.com",
+        projectId: "prodnotification-eba19",
+        storageBucket: "prodnotification-eba19.appspot.com",
+        messagingSenderId: "923291418261",
+        appId: "1:923291418261:web:4fe138fc0ded175199659c",
+        measurementId: "G-L8MSQXRRDE"
     };
 
     firebase.initializeApp(firebaseConfig);
