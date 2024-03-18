@@ -19,3 +19,4 @@ Then , import this file and send config:
     })
 </script>
 ```
+**Important** Please move firebase-messaging-sw.js to your root of project
