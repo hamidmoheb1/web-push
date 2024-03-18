@@ -2290,7 +2290,6 @@ const registerDevice = (config) => {
     xhr.send(JSON.stringify(config));
 }
 
-
 const sendStatus = (config) => {
     console.log("status sent:" + config.status);
     var url = "https://sandbox.sandpod.ir/srv/notif-sandbox/push/device/status";
@@ -2338,7 +2337,7 @@ const listen = async (token) => {
             registrationToken: token,
             data: [],
         });
-        const notification = new Notification(payload.data.title + "  front", {
+        const notification = new Notification(payload.data.title , {
             body: payload.data.body,
             icon: payload.data.icon,
             image: payload.data.image,
