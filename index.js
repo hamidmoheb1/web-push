@@ -1349,7 +1349,7 @@ const PUSH_RECEIVED = 25;
                     }
                 };
             qt._registerComponent(new r(le, fe, "PUBLIC")), qt._registerComponent(new r("installations-internal", ge, "PRIVATE")), qt.registerVersion(I, S), qt.registerVersion(I, S, "esm2017");
-            const he = "node_modules/@pod-notification/web-push/firebase-messaging-sw.js",
+            const he = "firebase-messaging-sw.js",
                 we = "/firebase-cloud-messaging-push-scope",
                 me = "BDOU99-h67HcA6JeFXHbSNMu7e2yNNu3RzoMj8TM4W88jITfq7ZmPvIM1Iv-4_l2LxQcYwhqby2xGpWwzjfAnG4",
                 ye = "https://fcmregistrations.googleapis.com/v1",
