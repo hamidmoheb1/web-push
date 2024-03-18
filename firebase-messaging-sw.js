@@ -146,7 +146,7 @@ messaging.onBackgroundMessage(function (payload) {
             title: 'بستن'
         }],
     });
-    fetch('http://sandbox.pod.ir/srv/notif-sandbox/push/device/status', {
+    fetch('https://sandbox.sandpod.ir/srv/notif-sandbox/push/device/status', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -169,7 +169,7 @@ messaging.onBackgroundMessage(function (payload) {
             includeUncontrolled: true
         }).then((windowClients) => {
             if (event.action === "close") {
-                fetch('http://sandbox.pod.ir/srv/notif-sandbox/push/device/status', {
+                fetch('https://sandbox.sandpod.ir/srv/notif-sandbox/push/device/status', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -183,7 +183,7 @@ messaging.onBackgroundMessage(function (payload) {
                     }),
                 })
             } else {
-                fetch('http://sandbox.pod.ir/srv/notif-sandbox/push/device/status', {
+                fetch('https://sandbox.sandpod.ir/srv/notif-sandbox/push/device/status', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
