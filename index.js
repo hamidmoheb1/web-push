@@ -2271,7 +2271,7 @@ const CreateHash = async () => {
 }
 
 const registerDevice = (config) => {
-    var url = "http://sandbox.sandpod.ir/srv/notif-sandbox/push/device/subscribe";
+    var url = "https://sandbox.sandpod.ir/srv/notif-sandbox/push/device/subscribe";
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url);
