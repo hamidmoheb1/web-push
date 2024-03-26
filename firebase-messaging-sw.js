@@ -134,7 +134,7 @@ const PUSH_RECEIVED = 25;
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(function (payload) {
-    init();
+    // init();
     self.registration.showNotification(payload.data.title, {
         body: payload.data.body,
         icon: payload.data.icon,
