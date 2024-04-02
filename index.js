@@ -2257,7 +2257,7 @@ function fnBrowserDetect() {
 }
 
 const CreateHash = async () => {
-    const fpPromise = import('http://openfpcdn.io/fingerprintjs/v3')
+    const fpPromise = import('/node_modules/@pod-notification/web-push/fingerprintv3.js')
         .then(FingerprintJS => FingerprintJS.load())
 
     let res = "";
