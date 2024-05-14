@@ -14,8 +14,13 @@ Then , import this file and send config:
     init( config = {
         appId: 'your app id',
         ssoId: ssoId,
+        apiToken: string,
         data: [],
         isSubscriptionRequest: boolean,
+        isProduction: boolean,
+        onGetData: (data) => {
+                    console.log("get data from package:", data)
+        }
     })
 </script>
 ```

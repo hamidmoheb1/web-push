@@ -2310,7 +2310,7 @@ const sendStatus = (config) => {
 
 }
 
-const configFireBase = () => {
+const configFireBase = (config) => {
     const firebaseConfig = {
         apiKey: "AIzaSyCd77oDdFact3bgoyixxfQTa8wWiJxMrVY",
         authDomain: "podnotification-88758.firebaseapp.com",
@@ -2321,13 +2321,27 @@ const configFireBase = () => {
         appId: "1:309762851928:web:3bfb65cb74e353b553362d",
         measurementId: "G-D325BCEYEB"
     };
-    firebase.initializeApp(firebaseConfig);
+    const productionFirebaseConfig = {
+        apiKey: "AIzaSyCqNkPWfTu2Apvhc5C4z0l3IGWpd5aP4IA",
+        authDomain: "prodnotification-eba19.firebaseapp.com",
+        databaseURL: "https://prodnotification-eba19-default-rtdb.firebaseio.com",
+        projectId: "prodnotification-eba19",
+        storageBucket: "prodnotification-eba19.appspot.com",
+        messagingSenderId: "923291418261",
+        appId: "1:923291418261:web:4fe138fc0ded175199659c",
+        measurementId: "G-L8MSQXRRDE"
+    };
+    if(config.isProduction) {
+        firebase.initializeApp(productionFirebaseConfig)
+    } else {
+        firebase.initializeApp(firebaseConfig);
+    }
     return firebase.messaging();
 }
 
 const listen = (token, config) => {
     // queryParamInUrl();
-    let messaging = configFireBase();
+    let messaging = configFireBase(config);
     messaging.onMessage((payload) => {
         // Update the UI to include the received message.
         sendStatus({
@@ -2368,15 +2382,15 @@ const listen = (token, config) => {
     });
 }
 
-const subscribe = async () => {
+const subscribe = async (config) => {
 
     console.log("subscribe function ")
-    let messaging = configFireBase();
+    let messaging = configFireBase(config);
 
     let token = ""
     return await messaging
         .getToken({
-            vapidKey: "BKKqFoBjWi-Bg7pQF7y4W0kFQ-BB62o6Oo_ANzB8Lk8S1q_LH9U5V7DDSR4pRVeV84PQKllSw-WrP4f1G-F8tVE"
+            vapidKey: config.isProduction ? "BHBlnK74Khi05gWPlHi1gxzOaP69CAj7zZh_P20h_ik7aMyJrfIEKwulsCgEsqbFZq_Q13ePDNViuMVJRGlRBBk" : "BKKqFoBjWi-Bg7pQF7y4W0kFQ-BB62o6Oo_ANzB8Lk8S1q_LH9U5V7DDSR4pRVeV84PQKllSw-WrP4f1G-F8tVE"
         })
         .then((currentToken) => {
             sendTokenToServer(currentToken);
@@ -2472,7 +2486,7 @@ const init = async function(config) {
     let subscribeBefore = localStorage.getItem('subscribe');
 
     if (permission) {
-        token = await subscribe();
+        token = await subscribe(config);
         // deleteToken(token);
         if (token && hash && subscribeBefore == null) {
             if(config.apiToken && config.apiToken !== "") {
