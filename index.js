@@ -2325,11 +2325,10 @@ const configFireBase = () => {
     return firebase.messaging();
 }
 
-const listen = async (token) => {
+const listen = (token, config) => {
     // queryParamInUrl();
     let messaging = configFireBase();
     messaging.onMessage((payload) => {
-        console.log("Message received. ", payload);
         // Update the UI to include the received message.
         sendStatus({
             status: PUSH_RECEIVED,
@@ -2365,10 +2364,8 @@ const listen = async (token) => {
 
             });
         });
-
-
+        config.onGetData(payload.data)
     });
-
 }
 
 const subscribe = async () => {
@@ -2488,8 +2485,6 @@ const init = async function(config) {
             localStorage.setItem('subscribe', 'yes');
             getToken(token);
         }
-        listen(token);
+        listen(token, config);
     }
 };
-
-// init();
