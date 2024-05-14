@@ -19,7 +19,7 @@ Then , import this file and send config:
         isSubscriptionRequest: boolean,
         isProduction: boolean,
         onGetData: (data) => {
-                    console.log("get data from package:", data)
+            console.log("get notification message data :", data)
         }
     })
 </script>
