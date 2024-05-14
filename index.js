@@ -2350,41 +2350,42 @@ const listen = (token, config) => {
             registrationToken: token,
             data: [],
         });
-        const notification = new Notification(payload.data.title , {
-            body: payload.data.body,
-            icon: payload.data.icon,
-            image: payload.data.image,
-            dir: payload.data.dir,
-            requireInteraction: payload.data.requireInteraction == "true" ? true : false
-        });
-        notification.addEventListener('click', () => {
-
-            sendStatus({
-                status: PUSH_SEEN,
-                messageId: payload.data.messageId,
-                registrationToken: token,
-                data: [],
-
+        if(!config.disableBrowserNotification) {
+            const notification = new Notification(payload.data.title, {
+                body: payload.data.body,
+                icon: payload.data.icon,
+                image: payload.data.image,
+                dir: payload.data.dir,
+                requireInteraction: payload.data.requireInteraction == "true" ? true : false
             });
-            if (payload.data.link)
-                window.open(payload.data.link);
-        });
-        notification.addEventListener('close', (e) => {
-            sendStatus({
-                status: PUSH_DISMISSED,
-                messageId: payload.data.messageId,
-                registrationToken: token,
-                data: [],
+            notification.addEventListener('click', () => {
 
+                sendStatus({
+                    status: PUSH_SEEN,
+                    messageId: payload.data.messageId,
+                    registrationToken: token,
+                    data: [],
+
+                });
+                if (payload.data.link)
+                    window.open(payload.data.link);
             });
-        });
+            notification.addEventListener('close', (e) => {
+                sendStatus({
+                    status: PUSH_DISMISSED,
+                    messageId: payload.data.messageId,
+                    registrationToken: token,
+                    data: [],
+
+                });
+            });
+        }
         config.onGetData(payload.data)
     });
 }
 
 const subscribe = async (config) => {
 
-    console.log("subscribe function ")
     let messaging = configFireBase(config);
 
     let token = ""

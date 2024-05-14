@@ -18,6 +18,7 @@ Then , import this file and send config:
         data: [],
         isSubscriptionRequest: boolean,
         isProduction: boolean,
+        disableBrowserNotification: boolean,
         onGetData: (data) => {
             console.log("get notification message data :", data)
         }
